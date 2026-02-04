@@ -6,7 +6,7 @@
 /*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 21:21:56 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/04 21:45:56 by ybarut           ###   ########.fr       */
+/*   Updated: 2026/02/04 22:43:54 by ybarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,34 @@ void	ft_lstadd_back(t_node **lst, t_node *new)
 			tmp = tmp->next;
 		tmp->next = new;
 	}
+}
+
+int has_duplicates(t_node *lst)
+{
+    t_node *i = lst;
+    t_node *temp;
+
+    while (i)
+    {
+        temp = i->next;
+        while (temp)
+        {
+            if (i->value == temp->value)
+                return 1;
+            temp = temp->next;
+        }
+        i = i->next;
+    }
+    return 0;
+}
+
+int is_sorted(t_node *lst)
+{
+    while (lst && lst->next)
+    {
+        if (lst->value > lst->next->value)
+            return 0;
+        lst = lst->next;
+    }
+    return 1;
 }
