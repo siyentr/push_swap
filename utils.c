@@ -6,7 +6,7 @@
 /*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 21:21:56 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/04 22:43:54 by ybarut           ###   ########.fr       */
+/*   Updated: 2026/02/04 22:56:39 by ybarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,16 @@ int is_sorted(t_node *lst)
         lst = lst->next;
     }
     return 1;
+}
+int	ft_lstsize(t_node *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }
