@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 15:10:00 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/05 14:56:20 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/05 15:04:56 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	parse_number(const char **cursor, int sign, int *out)
 		digit_found = 1;
 		if (sign == 1 && value > INT_MAX)
 			return (-1);
-		if (sign == -1 && -value < INT_MIN)
+		if (sign == -1 && - value < INT_MIN)
 			return (-1);
 		(*cursor)++;
 	}

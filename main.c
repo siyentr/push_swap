@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 23:01:03 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/05 14:51:05 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/05 15:09:49 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@ int main(int argc, char **argv)
 	}
 	if (has_duplicates(a))
 	{
-	    write(2, "Error\n", 6);
-	    //free_list(a);
-	    return 1;
+		write(2, "Error\n", 6);
+		//free_list(a);
+		return 1;
 	}
 	if (is_sorted(a))
 	{
-	    //free_list(a);
-	    return 0;
+		//free_list(a);
+		return (0);
 	}
 	//push_swap(&a, &b);
-    //free_list(a);
-    //free_list(b);
-	return 0;
+	//free_list(a);
+	//free_list(b);
+	return (0);
 }

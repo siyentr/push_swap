@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   operations.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 22:12:19 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/04 22:29:01 by ybarut           ###   ########.fr       */
+/*   Updated: 2026/02/05 15:03:54 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OPERATIONS_H
 # define OPERATIONS_H
 
-#include "push_swap.h"
+# include "push_swap.h"
 
 // void sa(t_node *a);
 // void sb(t_node *b);

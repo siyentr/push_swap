@@ -3,7 +3,10 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
-SRCS = push_swap.c
+SRCS = main.c push_swap.c \
+	   utils.c utils_parse.c \
+	   libft_calloc.c libft_lst.c
+
 OBJS = ${SRCS:.c=.o}
 
 all : ${NAME}

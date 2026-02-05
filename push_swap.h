@@ -6,13 +6,13 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:23:44 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/05 14:18:41 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/05 15:03:42 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <stddef.h>
+# include <stddef.h>
 
 #endif

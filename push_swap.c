@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 21:34:43 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/05 14:25:09 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/05 15:10:19 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,3 @@ void push_swap(t_node **a, t_node **b)
     //     algorithm2(a, b);
 	// we will continue like this :)
 }
-

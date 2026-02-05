@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 14:13:29 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/05 14:16:40 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/05 15:05:54 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-
 
 void	*ft_calloc(size_t count, size_t size)
 {

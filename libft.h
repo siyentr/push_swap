@@ -6,16 +6,16 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 13:54:45 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/05 14:22:28 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/05 15:03:29 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_UTILS_H
-# define LIBFT_UTILS_H
+#ifndef LIBFT_H
+# define LIBFT_H
 
-#include <stddef.h>
-#include <stdlib.h>
-#include "unistd.h"
+# include <stddef.h>
+# include <stdlib.h>
+# include "unistd.h"
 
 typedef struct s_node
 {
