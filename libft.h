@@ -28,6 +28,5 @@ void	ft_bzero(void *s, size_t n);
 t_node	*ft_lstnew(int value);
 void	ft_lstadd_back(t_node **lst, t_node *new);
 int		ft_lstsize(t_node *lst);
-int	ft_atoi(const char *str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 23:01:03 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/05 14:25:27 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/05 14:51:05 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@ int main(int argc, char **argv)
 	t_node *b = NULL;
 
 	int i = 1;
+	int	value;
 	
 	if (argc < 2)
     	return 0;
 	
 	while (i < argc)
 	{
-		ft_lstadd_back(&a,ft_lstnew(atoi(argv[i])));
+		if (parse_int(argv[i], &value) != 0)
+			return (write(2, "Error\n", 6), 1);
+		ft_lstadd_back(&a, ft_lstnew(value));
 		i++;
 	}
 	if (has_duplicates(a))

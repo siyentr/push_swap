@@ -18,5 +18,6 @@
 
 int has_duplicates(t_node *lst);
 int is_sorted(t_node *lst);
+int parse_int(const char *str, int *out);
 
 #endif
