@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 22:12:15 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/04 22:57:05 by ybarut           ###   ########.fr       */
+/*   Updated: 2026/02/05 14:20:30 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 # define UTILS_H
 
 #include "push_swap.h"
+#include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memset(void *s, int c, size_t n);
 int has_duplicates(t_node *lst);
 int is_sorted(t_node *lst);
-int	ft_lstsize(t_node *lst);
 
 #endif

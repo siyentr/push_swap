@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   time_tester.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 22:24:11 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/04 22:35:44 by ybarut           ###   ########.fr       */
+/*   Updated: 2026/02/05 14:25:00 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <time.h>
-#include "push_swap.h"
+#include <stdlib.h>
 #include <stdio.h>
 
 double get_time_in_seconds(void)

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 23:01:03 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/04 23:03:06 by ybarut           ###   ########.fr       */
+/*   Updated: 2026/02/05 14:25:27 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
+#include "utils.h"
 
 int main(int argc, char **argv)
 {
@@ -30,16 +31,16 @@ int main(int argc, char **argv)
 	if (has_duplicates(a))
 	{
 	    write(2, "Error\n", 6);
-	    free_list(a);
+	    //free_list(a);
 	    return 1;
 	}
 	if (is_sorted(a))
 	{
-	    free_list(a);
+	    //free_list(a);
 	    return 0;
 	}
-	push_swap(&a, &b);
-    free_list(a);
-    free_list(b);
+	//push_swap(&a, &b);
+    //free_list(a);
+    //free_list(b);
 	return 0;
 }
