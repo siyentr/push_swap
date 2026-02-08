@@ -15,6 +15,8 @@
 
 void push_swap(t_node **a, t_node **b)
 {
+	(void)a;
+	(void)b;
     //int size = lst_size(*a);
 
     // if (size <= 5)

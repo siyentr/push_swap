@@ -13,33 +13,49 @@
 #include "libft.h"
 #include "utils.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_node *a = NULL;
-	t_node *b = NULL;
+	t_node	*a;
+	t_node	*b;
 
-	int i = 1;
-	int	value;
-	
+	int		i;
+	int		value;
+	t_node	*node;
+
+	a = NULL;
+	b = NULL;
+	(void)b;
+	i = 1;
 	if (argc < 2)
-    	return 0;
+		return (0);
 	
 	while (i < argc)
 	{
 		if (parse_int(argv[i], &value) != 0)
-			return (write(2, "Error\n", 6), 1);
-		ft_lstadd_back(&a, ft_lstnew(value));
+		{
+			write(2, "Error\n", 6);
+			free_list(a);
+			return (1);
+		}
+		node = ft_lstnew(value);
+		if (!node)
+		{
+			write(2, "Error\n", 6);
+			free_list(a);
+			return (1);
+		}
+		ft_lstadd_back(&a, node);
 		i++;
 	}
 	if (has_duplicates(a))
 	{
 		write(2, "Error\n", 6);
-		//free_list(a);
-		return 1;
+		free_list(a);
+		return (1);
 	}
 	if (is_sorted(a))
 	{
-		//free_list(a);
+		free_list(a);
 		return (0);
 	}
 	//push_swap(&a, &b);

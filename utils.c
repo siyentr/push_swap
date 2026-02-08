@@ -42,3 +42,15 @@ int	is_sorted(t_node *lst)
 	}
 	return (1);
 }
+
+void	free_list(t_node *lst)
+{
+	t_node	*next;
+
+	while (lst)
+	{
+		next = lst->next;
+		free(lst);
+		lst = next;
+	}
+}
