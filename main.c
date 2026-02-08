@@ -6,21 +6,27 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 23:01:03 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/08 12:04:20 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/08 16:25:03 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "utils.h"
 
+static int	error_exit(t_node *a)
+{
+	write(2, "Error\n", 6);
+	free_list(a);
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
-	t_node	*a;
-	t_node	*b;
-
 	int		i;
 	int		value;
 	t_node	*node;
+	t_node	*a;
+	t_node	*b;
 
 	a = NULL;
 	b = NULL;
@@ -28,38 +34,22 @@ int	main(int argc, char **argv)
 	i = 1;
 	if (argc < 2)
 		return (0);
-	
 	while (i < argc)
 	{
 		if (parse_int(argv[i], &value) != 0)
-		{
-			write(2, "Error\n", 6);
-			free_list(a);
-			return (1);
-		}
+			return (error_exit(a));
 		node = ft_lstnew(value);
 		if (!node)
-		{
-			write(2, "Error\n", 6);
-			free_list(a);
-			return (1);
-		}
+			return (error_exit(a));
 		ft_lstadd_back(&a, node);
 		i++;
 	}
 	if (has_duplicates(a))
-	{
-		write(2, "Error\n", 6);
-		free_list(a);
-		return (1);
-	}
+		return (error_exit(a));
 	if (is_sorted(a))
-	{
-		free_list(a);
-		return (0);
-	}
-	//push_swap(&a, &b);
-	//free_list(a);
-	//free_list(b);
+		return (free_list(a), 0);
+	push_swap(&a, &b);
+	free_list(a);
+	free_list(b);
 	return (0);
 }
