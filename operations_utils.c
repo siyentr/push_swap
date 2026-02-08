@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
+#include "push_swap.h"
 
 void	op_write(const char *op)
 {

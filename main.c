@@ -20,30 +20,46 @@ static int	error_exit(t_node *a)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+static int	append_value(t_node **a, const char *arg)
 {
-	int		i;
 	int		value;
 	t_node	*node;
+
+	if (parse_int(arg, &value) != 0)
+		return (1);
+	node = ft_lstnew(value);
+	if (!node)
+		return (1);
+	ft_lstadd_back(a, node);
+	return (0);
+}
+
+static int	build_stack(t_node **a, int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (append_value(a, argv[i]) != 0)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
 	t_node	*a;
 	t_node	*b;
 
 	a = NULL;
 	b = NULL;
 	(void)b;
-	i = 1;
 	if (argc < 2)
 		return (0);
-	while (i < argc)
-	{
-		if (parse_int(argv[i], &value) != 0)
-			return (error_exit(a));
-		node = ft_lstnew(value);
-		if (!node)
-			return (error_exit(a));
-		ft_lstadd_back(&a, node);
-		i++;
-	}
+	if (build_stack(&a, argc, argv) != 0)
+		return (error_exit(a));
 	if (has_duplicates(a))
 		return (error_exit(a));
 	if (is_sorted(a))
