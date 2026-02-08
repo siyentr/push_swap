@@ -4,21 +4,23 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 SRCS = main.c push_swap.c \
+	   operations_utils.c operations_1.c operations_2.c operations_3.c \
 	   utils.c utils_parse.c \
 	   libft_calloc.c libft_lst.c
 
 OBJS = ${SRCS:.c=.o}
 
-all : ${NAME}
+all: ${NAME}
 
 ${NAME} : ${OBJS}
 	@${CC} ${CFLAGS} ${OBJS}  -o ${NAME}
 
-clean : 
-		@rm -rf  ${OBJS} 
-fclean :
-		@rm -rf ${OBJS} ${NAME}
+clean:
+	@rm -rf  ${OBJS}
 
-re :  	fclean all
+fclean:
+	@rm -rf ${OBJS} ${NAME}
+
+re: fclean all
 
 .PHONY: all clean fclean re
