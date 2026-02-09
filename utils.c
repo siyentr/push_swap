@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
+/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 21:21:56 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/05 15:12:01 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/09 17:04:34 by ybarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,33 @@ void	free_list(t_node *lst)
 		free(lst);
 		lst = next;
 	}
+}
+
+double	compute_disorder(t_node *head)
+{
+	long long	mistakes;
+	long long	pairs;
+	t_node		*left;
+	t_node		*right;
+
+	if (!head || !head->next)
+		return (0.0);
+
+	mistakes = 0;
+	pairs = 0;
+
+	left = head;
+	while (left)
+	{
+		right = left->next;
+		while (right)
+		{
+			pairs++;
+			if (left->value > right->value)
+				mistakes++;
+			right = right->next;
+		}
+		left = left->next;
+	}
+	return ((double)mistakes / (double)pairs);
 }
