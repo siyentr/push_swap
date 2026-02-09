@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
+/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 13:54:45 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/05 15:03:29 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/09 16:30:11 by ybarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stddef.h>
 # include <stdlib.h>
-# include "unistd.h"
+# include <unistd.h>
 
 typedef struct s_node
 {

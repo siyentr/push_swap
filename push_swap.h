@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
+/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:23:44 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/08 16:27:42 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/09 16:38:12 by ybarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,21 @@
 # include <stddef.h>
 # include "libft.h"
 
-void	push_swap(t_node **a, t_node **b);
+typedef enum e_strategy
+{
+	STRAT_SIMPLE,
+	STRAT_MEDIUM,
+	STRAT_COMPLEX,
+	STRAT_ADAPTIVE
+}	t_strategy;
+
+typedef struct s_config
+{
+	t_strategy	strategy;
+	int			bench;
+}	t_config;
+
+void	push_swap(t_node **a, t_node **b, t_config *config);
 
 void	op_write(const char *op);
 void	op_swap_top(t_node **stack);
