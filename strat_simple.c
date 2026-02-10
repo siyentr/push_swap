@@ -22,13 +22,19 @@ static int	find_extreme_pos(t_node *a, int find_max)
 
 	pos = 0;
 	best_pos = 0;
-	best_value = find_max ? a->value : a->index;
+	if (find_max)
+		best_value = a->value;
+	else
+		best_value = a->index;
 	while (a)
 	{
 		if ((!find_max && a->index < best_value)
 			|| (find_max && a->value > best_value))
 		{
-			best_value = find_max ? a->value : a->index;
+			if (find_max)
+				best_value = a->value;
+			else
+				best_value = a->index;
 			best_pos = pos;
 		}
 		a = a->next;

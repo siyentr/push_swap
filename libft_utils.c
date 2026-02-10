@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 02:40:34 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/10 04:16:12 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/10 04:40:08 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		*d++ = *s++;
 	return (dst);
 }
+
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;

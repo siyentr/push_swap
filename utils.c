@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 21:21:56 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/10 04:09:27 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/10 04:40:30 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,8 @@ double	compute_disorder(t_node *head)
 
 	if (!head || !head->next)
 		return (0.0);
-
 	mistakes = 0;
 	pairs = 0;
-
 	left = head;
 	while (left)
 	{
