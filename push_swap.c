@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 21:34:43 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/09 16:53:48 by ybarut           ###   ########.fr       */
+/*   Updated: 2026/02/10 02:22:38 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,16 @@
 
 void	push_swap(t_node **a, t_node **b, t_config *config)
 {
-	double	disorder;
+	int	size;
 
-	(void)b;
-	disorder = compute_disorder(*a);
-	(void)config;
-	(void)disorder;
+	if (!a || !*a || !config)
+		return ;
+	size = ft_lstsize(*a);
+	if (assign_indices(*a) != 0)
+		return ;
+	if (size <= 5 || config->strategy == STRAT_SIMPLE)
+	{
+		sort_simple(a, b);
+		return ;
+	}
 }

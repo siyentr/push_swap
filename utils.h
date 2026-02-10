@@ -21,5 +21,6 @@ int		is_sorted(t_node *lst);
 int		parse_int(const char *str, int *out);
 void	free_list(t_node *lst);
 double	compute_disorder(t_node *a);
+int		assign_indices(t_node *lst);
 
 #endif

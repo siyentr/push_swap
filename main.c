@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 23:01:03 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/09 16:40:20 by ybarut           ###   ########.fr       */
+/*   Updated: 2026/02/10 02:52:48 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,13 +103,24 @@ static int	append_value(t_node **a, const char *arg)
 
 static int	build_stack(t_node **a, int argc, char **argv, int start)
 {
-	int	i;
+	int		i;
+	size_t	j;
+	char	**parts;
 
 	i = start;
 	while (i < argc)
 	{
-		if (append_value(a, argv[i]) != 0)
-			return (1);
+		parts = ft_split(argv[i], ' ');
+		j = 0;
+		if (!parts || !parts[0])
+			return (free_split_arr(parts, 0), 1);
+		while (parts[j])
+		{
+			if (append_value(a, parts[j]) != 0)
+				return (free_split_arr(parts, (int)j), 1);
+			j++;
+		}
+		free_split_arr(parts, (int)j);
 		i++;
 	}
 	return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:23:44 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/09 16:38:12 by ybarut           ###   ########.fr       */
+/*   Updated: 2026/02/10 02:25:13 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_config
 }	t_config;
 
 void	push_swap(t_node **a, t_node **b, t_config *config);
+
+void	sort_simple(t_node **a, t_node **b);
 
 void	op_write(const char *op);
 void	op_swap_top(t_node **stack);

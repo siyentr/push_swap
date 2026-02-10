@@ -20,6 +20,7 @@ t_node	*ft_lstnew(int value)
 	if (!node)
 		return (NULL);
 	node->value = value;
+	node->index = -1;
 	return (node);
 }
 
