@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 21:34:43 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/10 17:16:03 by ybarut           ###   ########.fr       */
+/*   Updated: 2026/02/10 20:11:32 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,5 @@ int	push_swap(t_node **a, t_node **b, t_config *config)
 		sort_medium(a, b, config);
 	else if (selected == STRAT_COMPLEX)
 		sort_simple(a, b, config);
-	// TODO: complex
 	return (0);
 }
