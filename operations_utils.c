@@ -41,7 +41,6 @@ static int	get_op_type(const char *op)
 	return (-1);
 }
 
-
 void	op_write(const char *op, t_config *config)
 {
 	int	type;

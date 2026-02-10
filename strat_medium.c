@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   strat_medium.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 13:27:55 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/10 17:17:20 by ybarut           ###   ########.fr       */
+/*   Updated: 2026/02/10 17:34:24 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "utils.h"
 #include "libft.h"
 
 static void	rotate_a_to_top(t_node **a, int pos, int size, t_config *config)
@@ -53,15 +54,7 @@ static void	rotate_b_to_top(t_node **b, int pos, int size, t_config *config)
 	}
 }
 
-typedef struct s_chunk_info
-{
-	int	size;
-	int	chunk_count;
-	int	chunk_size;
-}	t_chunk_info;
-
-static void	push_phase(t_node **a, t_node **b, t_config *cfg,
-			t_chunk_info info)
+static void	push_phase(t_node **a, t_node **b, t_config *cfg, t_chunk_info info)
 {
 	int	current_chunk;
 	int	min_idx;
@@ -105,7 +98,7 @@ static void	pull_phase(t_node **a, t_node **b, t_config *cfg)
 
 void	sort_medium(t_node **a, t_node **b, t_config *config)
 {
-	int	size;
+	int				size;
 	t_chunk_info	info;
 
 	if (!a || !*a)

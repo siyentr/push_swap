@@ -52,4 +52,3 @@ int	find_pos_of_max(t_node *b, int *out_max_idx)
 		*out_max_idx = best_idx;
 	return (best_pos);
 }
-

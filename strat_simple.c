@@ -35,8 +35,8 @@ static void	push_min_to_b(t_node **a, t_node **b, int size, t_config *config)
 {
 	t_node	*node;
 	int		pos;
-	int	min_pos;
-	int	min_index;
+	int		min_pos;
+	int		min_index;
 
 	node = *a;
 	min_pos = 0;

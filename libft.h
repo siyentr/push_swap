@@ -37,7 +37,7 @@ size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	**ft_split(char const *s, char c);
 void	free_split_arr(char **arr, int i);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 t_node	*ft_lstnew(int value);
 void	ft_lstadd_back(t_node **lst, t_node *new);
