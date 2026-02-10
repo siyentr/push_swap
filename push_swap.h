@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:23:44 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/10 02:25:13 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/10 13:37:55 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <stddef.h>
 # include "libft.h"
+
+#define LOW_DISORDER_THRESHOLD 0.2
+#define MEDIUM_DISORDER_THRESHOLD 0.5
 
 typedef enum e_strategy
 {

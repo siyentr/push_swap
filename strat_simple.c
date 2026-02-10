@@ -6,42 +6,12 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 19:10:43 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/10 04:15:31 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/10 13:37:57 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
-
-// find_max: 0 -> min index, 1 -> max value
-static int	find_extreme_pos(t_node *a, int find_max)
-{
-	int	pos;
-	int	best_pos;
-	int	best_value;
-
-	pos = 0;
-	best_pos = 0;
-	if (find_max)
-		best_value = a->value;
-	else
-		best_value = a->index;
-	while (a)
-	{
-		if ((!find_max && a->index < best_value)
-			|| (find_max && a->value > best_value))
-		{
-			if (find_max)
-				best_value = a->value;
-			else
-				best_value = a->index;
-			best_pos = pos;
-		}
-		a = a->next;
-		pos++;
-	}
-	return (best_pos);
-}
 
 static void	rotate_to_top(t_node **a, int pos, int size)
 {
@@ -63,9 +33,25 @@ static void	rotate_to_top(t_node **a, int pos, int size)
 
 static void	push_min_to_b(t_node **a, t_node **b, int size)
 {
+	t_node	*node;
+	int		pos;
 	int	min_pos;
+	int	min_index;
 
-	min_pos = find_extreme_pos(*a, 0);
+	node = *a;
+	min_pos = 0;
+	min_index = node->index;
+	pos = 0;
+	while (node)
+	{
+		if (node->index < min_index)
+		{
+			min_index = node->index;
+			min_pos = pos;
+		}
+		node = node->next;
+		pos++;
+	}
 	rotate_to_top(a, min_pos, size);
 	pb(a, b);
 }
