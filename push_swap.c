@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 21:34:43 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/10 13:31:55 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/10 14:37:45 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,37 @@
 #include "libft.h"
 #include "utils.h"
 
-static t_strategy	select_adaptive_strategy(t_node *a)
+t_strategy	resolve_strategy(t_strategy requested, double disorder)
 {
-	double	disorder;
-
-	disorder = compute_disorder(a);
+	if (requested != STRAT_ADAPTIVE)
+		return (requested);
 	if (disorder < LOW_DISORDER_THRESHOLD)
 		return (STRAT_SIMPLE);
 	if (disorder < MEDIUM_DISORDER_THRESHOLD)
 		return (STRAT_MEDIUM);
 	return (STRAT_COMPLEX);
+}
+
+const char	*strategy_name(t_strategy strategy)
+{
+	if (strategy == STRAT_SIMPLE)
+		return ("simple");
+	if (strategy == STRAT_MEDIUM)
+		return ("medium");
+	if (strategy == STRAT_COMPLEX)
+		return ("complex");
+	return ("adaptive");
+}
+
+const char	*strategy_complexity(t_strategy strategy)
+{
+	if (strategy == STRAT_SIMPLE)
+		return ("O(n^2)");
+	if (strategy == STRAT_MEDIUM)
+		return ("O(n*sqrt(n))");
+	if (strategy == STRAT_COMPLEX)
+		return ("O(n log n)");
+	return ("adaptive");
 }
 
 int	push_swap(t_node **a, t_node **b, t_config *config)
@@ -34,15 +55,14 @@ int	push_swap(t_node **a, t_node **b, t_config *config)
 		return (1);
 	if (assign_indices(*a) != 0)
 		return (1);
-	selected = config->strategy;
-	if (selected == STRAT_ADAPTIVE)
-		selected = select_adaptive_strategy(*a);
+	selected = resolve_strategy(config->strategy, config->disorder);
+	config->selected_strategy = selected;
 	if (selected == STRAT_SIMPLE)
-		sort_simple(a, b);
+		sort_simple(a, b, config);
 	else if (selected == STRAT_MEDIUM)
-		sort_simple(a, b);
+		sort_simple(a, b, config);
 	else if (selected == STRAT_COMPLEX)
-		sort_simple(a, b);
-	//TOFO: medium and complex
+		sort_simple(a, b, config);
+	/* TODO: medium and complex. */
 	return (0);
 }

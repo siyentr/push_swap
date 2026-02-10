@@ -13,6 +13,15 @@ The binary accepts one strategy selector (or none):
 
 `--adaptive` is the default behavior if no selector is given.
 
+### Benchmark mode
+
+Use `--bench` to print post-sort benchmark data to `stderr`:
+
+- Disorder percentage (two decimals).
+- Effective strategy selected and theoretical complexity class.
+- Total operation count.
+- Per-operation counts for `sa sb ss pa pb ra rb rr rra rrb rrr`.
+
 ## Adaptive strategy design
 
 Disorder is measured as the inversion ratio:
@@ -49,11 +58,13 @@ Current internal techniques and complexity arguments (Push_swap model):
 - [mtaheri](https://github.com/2mdtln) Start writing README.
 - [ybarut](https://github.com/Restilov) Implement CLI flag parsing (strategy selectors and `--bench`).
 - [ybarut](https://github.com/Restilov) Integrate disorder metric computation into the main flow.
-- [mtaheri](https://github.com/2mdtln) Implemented `strat_simple` (selection-style, **O(n²)**), used in the low-disorder.
-- [mtaheri](https://github.com/2mdtln) Implement adaptive strategy selection (`select_adaptive_strategy`) using disorder thresholds.
+- [mtaheri](https://github.com/2mdtln) Implemented `strat_simple` (selection-style, **O(n²)**), used in the low-disorder regime.
+- [mtaheri](https://github.com/2mdtln) Implement adaptive strategy selection (`resolve_strategy`) using disorder thresholds.
+- [mtaheri](https://github.com/2mdtln) Implemented benchmark reporting for `--bench` (disorder, strategy/complexity, total ops, per-op counts to `stderr`).
 
 ## Resources
 - [gibbontech's push_swap notes](https://www.gibbontech.com/ecole42/push_swap/index.html)
 - [sortvisualizer.com](https://www.sortvisualizer.com/)
 - [Binary Search Algorithm in 100 Seconds - Fireship](https://www.youtube.com/watch?v=MFhxShGxHWc)
 - [Selection Sort - geeksforgeeks](https://www.geeksforgeeks.org/dsa/selection-sort-algorithm-2/)
+- [Enumeration (or enum) in C - geeksforgeeks](https://www.geeksforgeeks.org/c/enumeration-enum-c/)

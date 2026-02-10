@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 23:01:03 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/10 02:52:48 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/10 15:13:02 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ int	main(int argc, char **argv)
 	t_node		*a;
 	t_node		*b;
 	t_config	cfg;
+	int			i;
 	int			first_num;
 
 	a = NULL;
@@ -141,18 +142,29 @@ int	main(int argc, char **argv)
 		return (write(2, "Error\n", 6), 1);
 	if (first_num >= argc)
 		return (0);
+	i = 0;
+	while (i < OP_COUNT)
+		cfg.op_counts[i++] = 0;
 	if (build_stack(&a, argc, argv, first_num) != 0)
 		return (error_exit(a));
 	if (has_duplicates(a))
 		return (error_exit(a));
+	cfg.disorder = compute_disorder(a);
+	cfg.selected_strategy = resolve_strategy(cfg.strategy, cfg.disorder);
 	if (is_sorted(a))
+	{
+		if (cfg.bench)
+			put_bench(&cfg);
 		return (free_list(a), 0);
+	}
 	if (push_swap(&a, &b, &cfg) != 0)
 	{
 		free_list(a);
 		free_list(b);
 		return (write(2, "Error\n", 6), 1);
 	}
+	if (cfg.bench)
+		put_bench(&cfg);
 	free_list(a);
 	free_list(b);
 	return (0);

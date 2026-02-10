@@ -6,14 +6,14 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 19:10:43 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/10 13:37:57 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/10 15:36:34 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-static void	rotate_to_top(t_node **a, int pos, int size)
+static void	rotate_to_top(t_node **a, int pos, int size, t_config *config)
 {
 	int	i;
 
@@ -21,17 +21,17 @@ static void	rotate_to_top(t_node **a, int pos, int size)
 	{
 		i = 0;
 		while (i++ < pos)
-			ra(a);
+			ra(a, config);
 	}
 	else
 	{
 		i = 0;
 		while (i++ < (size - pos))
-			rra(a);
+			rra(a, config);
 	}
 }
 
-static void	push_min_to_b(t_node **a, t_node **b, int size)
+static void	push_min_to_b(t_node **a, t_node **b, int size, t_config *config)
 {
 	t_node	*node;
 	int		pos;
@@ -52,17 +52,17 @@ static void	push_min_to_b(t_node **a, t_node **b, int size)
 		node = node->next;
 		pos++;
 	}
-	rotate_to_top(a, min_pos, size);
-	pb(a, b);
+	rotate_to_top(a, min_pos, size, config);
+	pb(a, b, config);
 }
 
-static void	sort_2(t_node **a)
+static void	sort_2(t_node **a, t_config *config)
 {
 	if ((*a)->value > (*a)->next->value)
-		sa(a);
+		sa(a, config);
 }
 
-static void	sort_3(t_node **a)
+static void	sort_3(t_node **a, t_config *config)
 {
 	int	x;
 	int	y;
@@ -72,46 +72,46 @@ static void	sort_3(t_node **a)
 	y = (*a)->next->value;
 	z = (*a)->next->next->value;
 	if (x > y && y < z && x < z)
-		sa(a);
+		sa(a, config);
 	else if (x > y && y > z)
 	{
-		sa(a);
-		rra(a);
+		sa(a, config);
+		rra(a, config);
 	}
 	else if (x > y && y < z && x > z)
-		ra(a);
+		ra(a, config);
 	else if (x < y && y > z && x < z)
 	{
-		sa(a);
-		ra(a);
+		sa(a, config);
+		ra(a, config);
 	}
 	else if (x < y && y > z && x > z)
-		rra(a);
+		rra(a, config);
 }
 
-static void	sort_4(t_node **a, t_node **b)
+static void	sort_4(t_node **a, t_node **b, t_config *config)
 {
-	push_min_to_b(a, b, 4);
-	sort_3(a);
-	pa(a, b);
+	push_min_to_b(a, b, 4, config);
+	sort_3(a, config);
+	pa(a, b, config);
 }
 
-static void	sort_5(t_node **a, t_node **b)
+static void	sort_5(t_node **a, t_node **b, t_config *config)
 {
 	int	size;
 
 	size = ft_lstsize(*a);
 	while (size > 3)
 	{
-		push_min_to_b(a, b, size);
+		push_min_to_b(a, b, size, config);
 		size--;
 	}
-	sort_3(a);
+	sort_3(a, config);
 	while (*b)
-		pa(a, b);
+		pa(a, b, config);
 }
 
-void	sort_simple(t_node **a, t_node **b)
+void	sort_simple(t_node **a, t_node **b, t_config *config)
 {
 	int	size;
 
@@ -119,10 +119,10 @@ void	sort_simple(t_node **a, t_node **b)
 	if (size <= 1)
 		return ;
 	if (size == 2)
-		return (sort_2(a));
+		return (sort_2(a, config));
 	if (size == 3)
-		return (sort_3(a));
+		return (sort_3(a, config));
 	if (size == 4)
-		return (sort_4(a, b));
-	sort_5(a, b);
+		return (sort_4(a, b, config));
+	sort_5(a, b, config);
 }

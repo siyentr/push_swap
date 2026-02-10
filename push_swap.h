@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:23:44 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/10 13:37:55 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/10 15:14:39 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,32 +27,57 @@ typedef enum e_strategy
 	STRAT_ADAPTIVE
 }	t_strategy;
 
+typedef enum e_op_type
+{
+	OP_SA,
+	OP_SB,
+	OP_SS,
+	OP_PA,
+	OP_PB,
+	OP_RA,
+	OP_RB,
+	OP_RR,
+	OP_RRA,
+	OP_RRB,
+	OP_RRR,
+	OP_COUNT
+}	t_op_type;
+
 typedef struct s_config
 {
 	t_strategy	strategy;
+	t_strategy	selected_strategy;
+	double		disorder;
+	long		op_counts[OP_COUNT];
 	int			bench;
 }	t_config;
 
 int		push_swap(t_node **a, t_node **b, t_config *config);
+t_strategy	resolve_strategy(t_strategy requested, double disorder);
+const char	*strategy_name(t_strategy strategy);
+const char	*strategy_complexity(t_strategy strategy);
 
-void	sort_simple(t_node **a, t_node **b);
+void	sort_simple(t_node **a, t_node **b, t_config *config);
 
-void	op_write(const char *op);
+void	op_write(const char *op, t_config *config);
 void	op_swap_top(t_node **stack);
 void	op_push_stack(t_node **dst, t_node **src);
 void	op_rotate_stack(t_node **stack);
 void	op_rev_rotate_stack(t_node **stack);
+long	op_total(const t_config *cfg);
 
-void	sa(t_node **a);
-void	sb(t_node **b);
-void	ss(t_node **a, t_node **b);
-void	pa(t_node **a, t_node **b);
-void	pb(t_node **a, t_node **b);
-void	ra(t_node **a);
-void	rb(t_node **b);
-void	rr(t_node **a, t_node **b);
-void	rra(t_node **a);
-void	rrb(t_node **b);
-void	rrr(t_node **a, t_node **b);
+void	put_bench(const t_config *cfg);
+
+void	sa(t_node **a, t_config *config);
+void	sb(t_node **b, t_config *config);
+void	ss(t_node **a, t_node **b, t_config *config);
+void	pa(t_node **a, t_node **b, t_config *config);
+void	pb(t_node **a, t_node **b, t_config *config);
+void	ra(t_node **a, t_config *config);
+void	rb(t_node **b, t_config *config);
+void	rr(t_node **a, t_node **b, t_config *config);
+void	rra(t_node **a, t_config *config);
+void	rrb(t_node **b, t_config *config);
+void	rrr(t_node **a, t_node **b, t_config *config);
 
 #endif
