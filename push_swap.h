@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
+/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:23:44 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/10 15:14:39 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/10 17:16:34 by ybarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ const char	*strategy_name(t_strategy strategy);
 const char	*strategy_complexity(t_strategy strategy);
 
 void	sort_simple(t_node **a, t_node **b, t_config *config);
+void	sort_medium(t_node **a, t_node **b, t_config *config);
+int		find_pos_in_chunk(t_node *a, int min_idx, int max_idx);
+int		find_pos_of_max(t_node *b, int *out_max_idx);
 
 void	op_write(const char *op, t_config *config);
 void	op_swap_top(t_node **stack);

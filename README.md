@@ -44,7 +44,9 @@ Current internal techniques and complexity arguments (Push_swap model):
   Time upper bound: **O(n²)** operations.
   Extra space upper bound: **O(1)** auxiliary (excluding stack nodes already present).
 - **Medium / `STRAT_MEDIUM`**:
-  **TODO** target technique will be chosen to satisfy **O(n√n)** time.
+  Uses a √n-chunk strategy on normalized indices: the input range is split into roughly √n contiguous chunks in index space, elements are pushed to stack `b` chunk by chunk with directional rotations chosen to minimize distance, then reassembled by repeatedly bringing the maximum index in `b` back to `a`.
+  Time upper bound: **O(n√n)** push_swap operations (each element participates in `O(√n)` scans/rotations on average).
+  Extra space upper bound: **O(1)** auxiliary.
 - **High / `STRAT_COMPLEX`**:
   **TODO** target technique will be chosen to satisfy **O(n log n)** time.
 
@@ -61,6 +63,7 @@ Current internal techniques and complexity arguments (Push_swap model):
 - [mtaheri](https://github.com/2mdtln) Implemented `strat_simple` (selection-style, **O(n²)**), used in the low-disorder regime.
 - [mtaheri](https://github.com/2mdtln) Implement adaptive strategy selection (`resolve_strategy`) using disorder thresholds.
 - [mtaheri](https://github.com/2mdtln) Implemented benchmark reporting for `--bench` (disorder, strategy/complexity, total ops, per-op counts to `stderr`).
+- [ybarut](https://github.com/Restilov) Implemented the √n-chunk medium strategy (`STRAT_MEDIUM`) and integrated it into the strategy selector.
 
 ## Resources
 - [gibbontech's push_swap notes](https://www.gibbontech.com/ecole42/push_swap/index.html)

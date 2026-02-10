@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
+/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 21:21:56 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/10 04:40:30 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/10 17:17:48 by ybarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ static void	insertion_sort(int *arr, int n)
 	}
 }
 
+//Norm: Please do not close the lights boss...
+
 static int	index_of(int *arr, int n, int value)
 {
 	int	lo;
@@ -154,4 +156,16 @@ int	assign_indices(t_node *lst)
 	}
 	free(values);
 	return (0);
+}
+
+int	sqrt_num(int n)
+{
+	int	x;
+
+	if (n <= 0)
+		return (0);
+	x = 1;
+	while (x * x <= n && x < 46341)
+		x++;
+	return (x - 1);
 }
