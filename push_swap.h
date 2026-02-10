@@ -30,7 +30,7 @@ typedef struct s_config
 	int			bench;
 }	t_config;
 
-void	push_swap(t_node **a, t_node **b, t_config *config);
+int		push_swap(t_node **a, t_node **b, t_config *config);
 
 void	sort_simple(t_node **a, t_node **b);
 

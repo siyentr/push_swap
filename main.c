@@ -117,7 +117,7 @@ static int	build_stack(t_node **a, int argc, char **argv, int start)
 		while (parts[j])
 		{
 			if (append_value(a, parts[j]) != 0)
-				return (free_split_arr(parts, (int)j), 1);
+				return (free_split_arr(parts, (int)j + 1), 1);
 			j++;
 		}
 		free_split_arr(parts, (int)j);
@@ -147,7 +147,12 @@ int	main(int argc, char **argv)
 		return (error_exit(a));
 	if (is_sorted(a))
 		return (free_list(a), 0);
-	push_swap(&a, &b, &cfg);
+	if (push_swap(&a, &b, &cfg) != 0)
+	{
+		free_list(a);
+		free_list(b);
+		return (write(2, "Error\n", 6), 1);
+	}
 	free_list(a);
 	free_list(b);
 	return (0);

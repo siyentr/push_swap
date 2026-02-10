@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 12:03:05 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/08 12:05:57 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/10 04:37:18 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,24 @@
 
 void	ra(t_node **a)
 {
+	if (!a || !*a || !(*a)->next)
+		return ;
 	op_rotate_stack(a);
 	op_write("ra");
 }
 
 void	rb(t_node **b)
 {
+	if (!b || !*b || !(*b)->next)
+		return ;
 	op_rotate_stack(b);
 	op_write("rb");
 }
 
 void	rr(t_node **a, t_node **b)
 {
+	if ((!a || !*a || !(*a)->next) && (!b || !*b || !(*b)->next))
+		return ;
 	op_rotate_stack(a);
 	op_rotate_stack(b);
 	op_write("rr");
@@ -33,12 +39,16 @@ void	rr(t_node **a, t_node **b)
 
 void	rra(t_node **a)
 {
+	if (!a || !*a || !(*a)->next)
+		return ;
 	op_rev_rotate_stack(a);
 	op_write("rra");
 }
 
 void	rrb(t_node **b)
 {
+	if (!b || !*b || !(*b)->next)
+		return ;
 	op_rev_rotate_stack(b);
 	op_write("rrb");
 }

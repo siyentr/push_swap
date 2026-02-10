@@ -99,8 +99,6 @@ static void	sort_3(t_node **a)
 
 static void	sort_4(t_node **a, t_node **b)
 {
-	if (find_extreme_pos(*a, 1) == 3)
-		return (sort_3(a));
 	push_min_to_b(a, b, 4);
 	sort_3(a);
 	pa(a, b);
