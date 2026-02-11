@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 21:21:56 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/10 20:15:20 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/11 11:00:04 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,19 @@ int	is_sorted(t_node *lst)
 	return (1);
 }
 
-void	free_list(t_node *lst)
+void	free_list(t_node *a, t_node *b)
 {
 	t_node	*next;
+	t_node	*lst;
 
+	lst = a;
+	while (lst)
+	{
+		next = lst->next;
+		free(lst);
+		lst = next;
+	}
+	lst = b;
 	while (lst)
 	{
 		next = lst->next;

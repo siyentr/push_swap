@@ -4,7 +4,7 @@ BONUS_NAME = checker
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
-SRCS = main.c push_swap.c \
+SRCS = main.c main_parse.c push_swap.c \
 	strat_simple.c strat_medium.c \
 	strat_simple_utils.c  strat_medium_utils.c \
 	operations_utils.c operations_put.c operations_1.c operations_2.c operations_3.c \

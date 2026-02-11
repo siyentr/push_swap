@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 20:46:16 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/11 10:25:29 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/11 10:58:42 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 static int	error_exit(t_node *a, t_node *b, char *line)
 {
 	free(line);
-	free_list(a);
-	free_list(b);
+	free_list(a, b);
 	write(2, "Error\n", 6);
 	return (1);
 }
@@ -36,7 +35,7 @@ static int	append_value(t_node **a, const char *arg)
 	return (0);
 }
 
-static int	build_stack(t_node **a, int argc, char **argv)
+static int	build_checker_stack(t_node **a, int argc, char **argv)
 {
 	int		i;
 	size_t	j;
@@ -118,11 +117,10 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc < 2)
 		return (0);
-	if (build_stack(&a, argc, argv) != 0 || has_duplicates(a))
+	if (build_checker_stack(&a, argc, argv) != 0 || has_duplicates(a))
 		return (error_exit(a, b, NULL));
 	if (run_instructions(&a, &b) != 0)
 		return (1);
-	free_list(a);
-	free_list(b);
+	free_list(a, b);
 	return (0);
 }
