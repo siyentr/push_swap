@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 20:20:58 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/10 20:23:51 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/11 10:26:14 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,13 @@ void	op_write(const char *op, t_config *config)
 {
 	int	type;
 
+	if (!op)
+		return ;
 	type = get_op_type(op);
 	if (type >= 0 && config)
 		config->op_counts[type]++;
+	if (!config)
+		return ;
 	ft_putstr_fd((char *)op, 1);
 	ft_putstr_fd("\n", 1);
 }

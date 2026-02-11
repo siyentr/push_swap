@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 17:14:19 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/10 04:15:48 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/10 20:40:23 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static size_t	word_len(char const *s, char c)
 	return (len);
 }
 
-static char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	s_len;
 	char	*sub;
