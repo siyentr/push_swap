@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 21:34:43 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/11 19:28:12 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/13 03:14:32 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ int	push_swap(t_node **a, t_node **b, t_config *config)
 		return (1);
 	if (assign_indices(*a) != 0)
 		return (1);
-	selected = resolve_strategy(config->strategy, config->disorder, ft_lstsize(*a));
+	selected = resolve_strategy(config->strategy,
+			config->disorder, ft_lstsize(*a));
 	config->selected_strategy = selected;
 	if (selected == STRAT_SIMPLE)
 		sort_simple(a, b, config);

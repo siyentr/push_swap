@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 23:01:03 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/11 10:58:12 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/13 03:14:44 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ static int	prepare_data(int argc, char **argv, t_node **a, t_config *cfg)
 		return (-1);
 	size = ft_lstsize(*a);
 	cfg->disorder = compute_disorder(*a);
-	cfg->selected_strategy = resolve_strategy(cfg->strategy, cfg->disorder, size);
+	cfg->selected_strategy = resolve_strategy(cfg->strategy,
+			cfg->disorder, size);
 	return (0);
 }
 

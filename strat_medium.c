@@ -6,13 +6,19 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 13:27:55 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/12 22:11:05 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/13 03:20:50 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 #include "utils.h"
+
+static void	advance_window(int *low, int *high)
+{
+	(*low)++;
+	(*high)++;
+}
 
 static void	push_phase(t_node **a, t_node **b, int size, t_config *cfg)
 {
@@ -28,9 +34,16 @@ static void	push_phase(t_node **a, t_node **b, int size, t_config *cfg)
 	while (*a)
 	{
 		if ((*a)->index <= low)
-			pb(a, b, cfg), rb(b, cfg), low++, high++;
+		{
+			pb(a, b, cfg);
+			rb(b, cfg);
+			advance_window(&low, &high);
+		}
 		else if ((*a)->index <= high)
-			pb(a, b, cfg), low++, high++;
+		{
+			pb(a, b, cfg);
+			advance_window(&low, &high);
+		}
 		else
 			ra(a, cfg);
 	}
