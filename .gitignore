@@ -1,5 +1,4 @@
 *.o
 push_swap
-checker_Mac
 *.txt
-checker
+checker*

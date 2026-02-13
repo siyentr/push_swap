@@ -34,6 +34,7 @@ static void	init_op_counts(t_config *cfg)
 static int	prepare_data(int argc, char **argv, t_node **a, t_config *cfg)
 {
 	int	first_num;
+	int	size;
 
 	if (parse_options(argc, argv, cfg, &first_num) != 0)
 		return (1);
@@ -42,8 +43,9 @@ static int	prepare_data(int argc, char **argv, t_node **a, t_config *cfg)
 	init_op_counts(cfg);
 	if (build_stack(a, argc, argv, first_num) != 0 || has_duplicates(*a))
 		return (-1);
+	size = ft_lstsize(*a);
 	cfg->disorder = compute_disorder(*a);
-	cfg->selected_strategy = resolve_strategy(cfg->strategy, cfg->disorder);
+	cfg->selected_strategy = resolve_strategy(cfg->strategy, cfg->disorder, size);
 	return (0);
 }
 

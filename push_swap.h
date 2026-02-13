@@ -60,13 +60,14 @@ typedef struct s_chunk_info
 }	t_chunk_info;
 
 int			push_swap(t_node **a, t_node **b, t_config *config);
-t_strategy	resolve_strategy(t_strategy requested, double disorder);
+t_strategy	resolve_strategy(t_strategy requested, double disorder, int size);
 const char	*strategy_name(t_strategy strategy);
 const char	*strategy_complexity(t_strategy strategy);
 
 void		sort_simple(t_node **a, t_node **b, t_config *config);
 void		push_min_to_b(t_node **a, t_node **b, int size, t_config *config);
 void		sort_medium(t_node **a, t_node **b, t_config *config);
+void		sort_complex(t_node **a, t_node **b, t_config *config);
 int			find_pos_in_chunk(t_node *a, int min_idx, int max_idx);
 int			find_pos_of_max(t_node *b, int *out_max_idx);
 

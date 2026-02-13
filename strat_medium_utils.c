@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   strat_medium_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybarut <ybarut@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 14:07:19 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/10 17:16:58 by ybarut           ###   ########.fr       */
+/*   Updated: 2026/02/13 02:28:45 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,59 @@ int	find_pos_of_max(t_node *b, int *out_max_idx)
 	if (out_max_idx)
 		*out_max_idx = best_idx;
 	return (best_pos);
+}
+
+int	medium_get_cost(int pos, int size)
+{
+	if (pos <= size / 2)
+		return (pos);
+	return (pos - size);
+}
+
+int	medium_get_min_pos(t_node *a)
+{
+	int	pos;
+	int	min_idx;
+	int	best_pos;
+
+	pos = 0;
+	best_pos = 0;
+	min_idx = a->index;
+	while (a)
+	{
+		if (a->index < min_idx)
+		{
+			min_idx = a->index;
+			best_pos = pos;
+		}
+		a = a->next;
+		pos++;
+	}
+	return (best_pos);
+}
+
+int	medium_target_pos_in_a(t_node *a, int b_idx)
+{
+	int		pos;
+	int		best_pos;
+	int		best_idx;
+	t_node	*node;
+
+	node = a;
+	pos = 0;
+	best_pos = -1;
+	best_idx = 2147483647;
+	while (node)
+	{
+		if (node->index > b_idx && node->index < best_idx)
+		{
+			best_idx = node->index;
+			best_pos = pos;
+		}
+		node = node->next;
+		pos++;
+	}
+	if (best_pos != -1)
+		return (best_pos);
+	return (medium_get_min_pos(a));
 }

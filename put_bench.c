@@ -30,11 +30,16 @@ long	op_total(const t_config *cfg)
 
 static void	put_bench_header(const t_config *cfg)
 {
+	t_strategy	displayed;
+
+	displayed = cfg->selected_strategy;
+	if (cfg->strategy == STRAT_ADAPTIVE)
+		displayed = STRAT_ADAPTIVE;
 	ft_putstr_fd("[bench] disorder: ", 2);
 	ft_putdisorder_pct_fd(cfg->disorder, 2);
 	ft_putstr_fd("\n", 2);
 	ft_putstr_fd("[bench] strategy: ", 2);
-	ft_putstr_fd(strategy_name(cfg->selected_strategy), 2);
+	ft_putstr_fd(strategy_name(displayed), 2);
 	ft_putstr_fd(" / ", 2);
 	ft_putstr_fd(strategy_complexity(cfg->selected_strategy), 2);
 	ft_putstr_fd("\n", 2);
