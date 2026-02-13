@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 19:10:43 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/10 20:07:38 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/13 05:04:33 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	sort_4(t_node **a, t_node **b, t_config *config)
 	pa(a, b, config);
 }
 
-static void	sort_5(t_node **a, t_node **b, t_config *config)
+static void	sort_more_than_4(t_node **a, t_node **b, t_config *config)
 {
 	int	size;
 
@@ -81,5 +81,5 @@ void	sort_simple(t_node **a, t_node **b, t_config *config)
 		return (sort_3(a, config));
 	if (size == 4)
 		return (sort_4(a, b, config));
-	sort_5(a, b, config);
+	sort_more_than_4(a, b, config);
 }

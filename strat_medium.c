@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 13:27:55 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/13 03:20:50 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/13 05:08:12 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,12 @@ static void	rotate_b_to_top(t_node **b, int pos, int size, t_config *cfg)
 static void	pull_phase(t_node **a, t_node **b, t_config *cfg)
 {
 	int	pos;
-	int	size_b;
 	int	max_idx;
 
 	while (*b)
 	{
-		size_b = ft_lstsize(*b);
 		pos = find_pos_of_max(*b, &max_idx);
-		rotate_b_to_top(b, pos, size_b, cfg);
+		rotate_b_to_top(b, pos, ft_lstsize(*b), cfg);
 		pa(a, b, cfg);
 	}
 }

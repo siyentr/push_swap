@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 14:07:19 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/13 02:28:45 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/13 05:10:39 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	medium_target_pos_in_a(t_node *a, int b_idx)
 	node = a;
 	pos = 0;
 	best_pos = -1;
-	best_idx = 2147483647;
+	best_idx = INT_MAX;
 	while (node)
 	{
 		if (node->index > b_idx && node->index < best_idx)

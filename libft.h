@@ -6,14 +6,13 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 13:54:45 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/10 20:40:22 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/13 05:13:16 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
 

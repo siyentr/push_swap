@@ -6,12 +6,11 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 15:10:00 by mtaheri           #+#    #+#             */
-/*   Updated: 2026/02/05 15:04:56 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/02/13 05:12:48 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
-#include <limits.h>
 
 static int	ft_isspace(int c)
 {
