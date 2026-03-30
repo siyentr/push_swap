@@ -6,7 +6,7 @@
 /*   By: mtaheri <mtaheri@student.42istanbul.com.tr>+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 21:34:43 by ybarut            #+#    #+#             */
-/*   Updated: 2026/02/13 03:14:32 by mtaheri          ###   ########.fr       */
+/*   Updated: 2026/03/30 03:19:54 by mtaheri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ t_strategy	resolve_strategy(t_strategy requested, double disorder, int size)
 		return (STRAT_SIMPLE);
 	if (disorder < MEDIUM_DISORDER_THRESHOLD)
 		return (STRAT_MEDIUM);
+	// abi bi insan ne kadar issiz olabilir?? 
+	// ne ariyon burda ne alcan ne kazancan?
 	if (size <= 600)
 		return (STRAT_MEDIUM);
 	return (STRAT_COMPLEX);
